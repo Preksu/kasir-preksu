@@ -24,7 +24,7 @@
 		                    <td></td>
 		                    <td><input type="number" name="phone_1" class="form-control inputs lst" id="phone_1" value="1"></td>
 		                    <td></td>
-		                    <td><a class="btn btn-danger deleteLink" href="#">Hapus</a></td>
+		                    <td><a class="btn btn-danger" href="#">Hapus</a></td>
 		                </tr>
 		            </tbody>
 		        </table>

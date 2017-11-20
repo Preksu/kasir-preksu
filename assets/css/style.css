@@ -713,3 +713,22 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
 .link:hover{
   color: #fff;
 }
+
+.login-form {
+  width: 350px;
+  padding: 40px 30px;
+  background: #fff;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  box-shadow: 0px 0px 8px #555;
+}

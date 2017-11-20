@@ -96,14 +96,6 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#dropdownUser"><i class="fa fa-fw fa-user"></i> User <i class="fa fa-fw fa-caret-down pull-right"></i></a>
-                        <ul id="dropdownUser" class="collapse">
-                            <li>
-                                <a href="<?=base_url();?>admin/user">Ganti Password</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
                         <a href="<?=base_url();?>admin/log"><i class="fa fa-fw fa-file"></i> Log</a>
                     </li>
                     <li>
