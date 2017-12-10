@@ -43,6 +43,7 @@
     <script src="<?= base_url();?>assets/js/summernote.js"></script>
     <script src="<?= base_url();?>assets/js/bootstrap.min.js"></script>
     <script src="<?= base_url();?>assets/js/jquery.tagsinput.js"></script>
+  
 
     <!-- Morris Charts JavaScript -->
     <!--<script src="<?= base_url();?>assets/js/plugins/morris/raphael.min.js"></script>-->
