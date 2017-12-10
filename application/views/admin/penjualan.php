@@ -13,7 +13,6 @@
          </div>
 		</div>
 
-		<form>
 			<div class="form-group">
 				<table class="table table-bordered table-striped" id="favoriteFoodTable"  width="100%">
 		            <thead>
@@ -32,7 +31,6 @@
 		            </tbody>
 		        </table>
 			</div>
-		</form>
 		</div>
 		<div class="col-md-4">
 			<div>
@@ -71,14 +69,14 @@
 			var nama_menu = duce.nama_menu;
 			var harga = duce.harga;
 			var jumlah = harga * quantity;
-			html = '<tr>';
+			html = '<tr class="row_tabel">';
 		    html += '<td>' + i + '</td>';
 		    html += '<td>'+id+'</td>';
 		    html += '<td class="menu_nama" >'+ nama_menu +'</td>';
 		    html += '<td class="menu_harga">'+harga+'</td>';
 		    html += '<td class="menu_qty">'+ quantity +'</td>';
 		    html += '<td class="jml menu_jml">'+jumlah+'</td>';
-		    html += '<td><a class="btn btn-danger deleteLink" href="#">Hapus</a></td>'
+		    html += '<td><button class="btn btn-danger delete_pesanan" >Hapus</button></td>';
 		    html += '</tr>';
 		    $('table').append(html);
 		    $(this).focus().select();
@@ -140,6 +138,18 @@
 	    $('.inputs').eq(index).focus();
 	  }
 	});
+	$(document).on('click', '.delete_pesanan', function(e){
+		var index = $('.delete_pesanan').index(this);
+		$('.row_tabel').eq(index).remove();
+		var a= $('table tr').length -1;
+	   	var total=0;
+	   	console.log('jumlah baris '+a);
+	   	for(var q=0;q<a;q++){
+	   		total=total+Number($('.jml').eq(q).text());
+	   		
+	   	}
+	   	$('#total_bayar').val(total);
+	});
 	
 	$(document).ready(function() {
 		
@@ -152,6 +162,7 @@
 	        });
 	      return false;
 	    });
+	    
 	});
 
 </script>
