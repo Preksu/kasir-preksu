@@ -49,7 +49,7 @@
 					<input class="form-control kembalian" type="text" value="" name="" disabled="">
 				</div>
 				<div class="form-group" >
-					<input class="btn btn-success" type="submit" name="" value="Kirim">
+					<a class="btn btn-success" href="<?=base_url()?>admin/penjualan" name="">Pesanan Baru</a>
 				</div>
 			</div>
 		</div>
@@ -109,6 +109,7 @@
 	  	var harga = [];
 	  	var quantity = [];
 	  	var jumlah = [];
+	  	var total = $('#total_bayar').val();
 	  	var a= $('table tr').length -1;
 	  	for (var q = 0; q<a; q++) {
 	  	 	nama_menu[q]= $('.menu_nama').eq(q).text()
@@ -116,6 +117,14 @@
 	  	 	quantity[q]= $('.menu_qty').eq(q).text()
 	  	 	jumlah[q]= $('.menu_jml').eq(q).text()
 	  	}
+	  	$.ajax({
+		   type: "POST",
+		   data: {nama_menu:nama_menu,harga:harga,quantity:quantity,jumlah:jumlah, total:total},
+		   url: "<?=base_url()?>Admin/input_pesanan",
+		   success: function(data){
+		     alert('berhasil memasukkan order !');
+		   }
+		});
 	  }
 	});
 

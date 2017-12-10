@@ -83,21 +83,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="">
-                        <a href="<?=base_url();?>admin"><i class="fa fa-fw fa-desktop"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#dropdownBerita"><i class="fa fa-fw fa-edit"></i>Penjualan<i class="fa fa-fw fa-caret-down pull-right"></i></a>
-                        <ul id="dropdownBerita" class="collapse">
-                            <li>
-                                <a href="<?=base_url();?>admin/penjualan">Penjualan</a>                                
-                            </li>
-                            <li>
-                                <a href="<?=base_url();?>admin/riwayat">Riwayat Penjualan</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="<?=base_url();?>admin/log"><i class="fa fa-fw fa-file"></i> Log</a>
+                        <a href="<?=base_url();?>admin/penjualan"><i class="fa fa-fw fa-desktop"></i> Penjualan</a>
                     </li>
                     <li>
                         <a href="<?php echo base_url('login/logout'); ?>"><i class="fa fa-fw fa-sign-out"></i> Logout</a>
