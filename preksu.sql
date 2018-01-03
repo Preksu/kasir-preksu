@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 10 Des 2017 pada 10.17
+-- Generation Time: 03 Jan 2018 pada 08.54
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -65,6 +65,7 @@ INSERT INTO `menu` (`id_menu`, `nama_menu`, `bahan`, `harga`) VALUES
 CREATE TABLE `pengguna` (
   `id_user` int(11) NOT NULL,
   `nama_lengkap` varchar(30) NOT NULL,
+  `alamat` varchar(50) NOT NULL,
   `nama_pengguna` varchar(20) NOT NULL,
   `password` varchar(100) NOT NULL,
   `level` tinyint(1) NOT NULL
@@ -90,7 +91,10 @@ INSERT INTO `pesanan` (`id_pesanan`, `tanggal_pesanan`, `total_pesanan`) VALUES
 (1, '2017-12-09 17:00:00', 27000),
 (2, '2017-12-10 01:02:55', 27000),
 (3, '2017-12-10 01:06:18', 54000),
-(4, '2017-12-10 02:42:40', 42000);
+(4, '2017-12-10 02:42:40', 42000),
+(5, '2017-12-10 03:30:40', 40000),
+(6, '2017-12-10 18:56:44', 55000),
+(7, '2018-01-02 22:18:17', 55000);
 
 -- --------------------------------------------------------
 
@@ -134,7 +138,14 @@ INSERT INTO `rincian_pesanan` (`id_rincian_pesanan`, `id_pesanan`, `nama_menu`, 
 (7, 4, 'ayam geprek original', 10000, 1, 10000),
 (8, 4, 'ayam geprek original', 10000, 1, 10000),
 (9, 4, 'ayam geprek original', 10000, 1, 10000),
-(10, 4, 'ayam geprek spesial', 12000, 1, 12000);
+(10, 4, 'ayam geprek spesial', 12000, 1, 12000),
+(11, 5, 'ayam geprek susu', 15000, 1, 15000),
+(12, 5, 'ayam geprek original', 10000, 1, 10000),
+(13, 5, 'ayam geprek susu', 15000, 1, 15000),
+(14, 6, 'ayam geprek original', 10000, 1, 10000),
+(15, 6, 'ayam geprek susu', 15000, 3, 45000),
+(16, 7, 'ayam geprek original', 10000, 1, 10000),
+(17, 7, 'ayam geprek susu', 15000, 3, 45000);
 
 --
 -- Indexes for dumped tables
@@ -202,7 +213,7 @@ ALTER TABLE `pengguna`
 -- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `rincian_menu`
@@ -214,7 +225,7 @@ ALTER TABLE `rincian_menu`
 -- AUTO_INCREMENT for table `rincian_pesanan`
 --
 ALTER TABLE `rincian_pesanan`
-  MODIFY `id_rincian_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_rincian_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
