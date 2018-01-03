@@ -14,19 +14,20 @@
                 </tr>
             </thead> 
             <tbody>
-                <?php $no=0; foreach ($menu as $posts) {
+                <?php $no=0; foreach ($pengguna as $posts) {
                 ?>
                 <tr>
                 	<td><?php echo $no+1 ?></td>
-                    <td><?php echo $posts->nama_menu ?></td>
-                    <td><?php echo $posts->harga ?></td>
+                    <td><?php echo $posts->nama_lengkap ?></td>
+                    <td><?php echo $posts->nama_pengguna ?></td>
+                    <td><?php echo $posts->alamat ?></td>
                     <td> 
                         <form id="myform<?php echo $no; ?>" style="margin-bottom: 10px;" method="POST" action="<?= base_url();?>Owner/edit_menu">
                             <input type="hidden" name="img" value="">
-                            <input type="hidden" name="id" value="<?php echo $posts->id_menu ?>">
+                            <input type="hidden" name="id" value="">
                         </form>
-                        <button class="btn btn-warning" type="submit" name="edit" value="edit"><i class="glyphicon glyphicon-edit"></i></button>
-                        <button data-toggle="modal" data-target="#modal_hapus<?php echo $no; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
+                        <button <?php if($posts->id_user==1){echo 'disabled=""';} ?> class="btn btn-warning" type="submit" name="edit" value="edit"><i class="glyphicon glyphicon-edit"></i></button>
+                        <button <?php if($posts->id_user==1){echo 'disabled=""';} ?> data-toggle="modal" data-target="#modal_hapus<?php echo $no; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
                     </td>
                 </tr>
                 <?php $no++; }?>

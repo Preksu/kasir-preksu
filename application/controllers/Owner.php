@@ -15,8 +15,23 @@ class Owner extends CI_Controller {
 	public function index($page = 'owner')
 	{
 		
+		if (!$this->input->post('bulan_masuk')) {
+			$bulan=date('m');
+			$data['pesanan']=$this->M_data->get_pesanan($bulan);
+			$data['inventory']=$this->M_data->get_inventory($bulan);
+			$data['bln']=$bulan;	
+		}else{
+			$bulan=$this->input->post('bln_masuk');
+			$data['pesanan']=$this->M_data->get_pesanan($bulan);
+			$data['inventory']=$this->M_data->get_inventory($bulan);
+			$data['bln']=$bulan;
+		}
+
 
 		$data['menu'] = $this->M_data->get_menu();
+		$data['bulanan']=$this->M_data->get_data_bulanan();
+		$data['pengguna']=$this->M_data->get_pengguna();
+
 
 		$this->load->view('Owner/header-nav-side.php');
 		$this->load->view('Owner/'.$page,$data);
@@ -28,30 +43,79 @@ class Owner extends CI_Controller {
 		$data['menu']=$this->M_data->get_menu();
 	}
 
-	public function input_pesanan(){
+	public function get_pesanan(){
+		$dat=$this->M_data->get_pesanan();
+		$data=$this->M_data->get_data_bulanan();
+		foreach ($data as $key) {
+			echo $key->no_meja;
+		}
+	}
+
+
+	public function input_inventory(){
 		$total=$this->input->post('total');
-		$nama_menu=$this->input->post('nama_menu');
+		$inventory=$this->input->post('inventory');
 		$harga=$this->input->post('harga');
 		$quantity=$this->input->post('quantity');
-		$jumlah=$this->input->post('jumlah');
 
-		$pesanan = array('total_pesanan' => $total,
-							'id_pesanan' => '');
+		$pesanan = array('total' => $total,
+							'id_inventory' => '');
 
-		$this->M_data->input_pesanan($pesanan);
-		$id=$this->M_data->get_new_pesanan()->id_pesanan;
+		$this->M_data->input_inventory($pesanan);
+		$id=$this->M_data->get_new_inventory()->id_inventory;
 
-		$a=count($nama_menu);
+		$a=count($inventory);
 		for ($i=0; $i < $a; $i++) { 
-			$data = array('id_rincian_pesanan' => '',
-							  'id_pesanan' => $id,
-							   'nama_menu' => $nama_menu[$i],
+			$data = array('id_rincian_inventory' => '',
+							  'id_inventory' => $id,
+							   'nama_inventory' => $inventory[$i],
 							 	'harga'    => $harga[$i],
-							 	'quantity' => $quantity[$i],
-							'jumlah_harga' => $jumlah[$i]
+							 	'quantity' => $quantity[$i]
 						);
-			$this->M_data->input_rincian_pesanan($data);
+			$this->M_data->input_rincian_inventory($data);
 		}
+	}
+	//hapus menu
+	public function hapus_menu($id){
+		$this->M_data->hapus_menu($id);
+		redirect('owner/menu');
+	}
+	public function operasi_menu(){
+		if ($this->input->post('tambah')) {
+			$this->input_menu();
+		}
+		if ($this->input->post('simpan')){
+			$this->update_menu();	
+		}
+	}
+	public function input_menu(){
+		$nama_menu=$this->input->post('nama_menu');
+		$bahan=$this->input->post('bahan');
+		$harga=$this->input->post('harga');
+	
+			$data = array('id_menu' => '',
+							   'nama_menu' => $nama_menu,
+							   'bahan'	=> $bahan,
+							 	'harga'    => $harga,
+						);
+		$this->M_data->input_menu($data);
+		redirect('owner/menu');
+		
+	}
+	public function update_menu(){
+		$id=$this->input->post('id');
+		$nama_menu=$this->input->post('nama_menu');
+		$bahan=$this->input->post('bahan');
+		$harga=$this->input->post('harga');
+	
+			$data = array(
+							   'nama_menu' => $nama_menu,
+							   'bahan'	=> $bahan,
+							 	'harga'    => $harga,
+						);
+		$this->M_data->update_menu($id,$data);
+		redirect('owner/menu');
+		
 	}
 	
 }

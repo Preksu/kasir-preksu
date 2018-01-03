@@ -43,6 +43,7 @@
     <script src="<?= base_url();?>assets/js/summernote.js"></script>
     <script src="<?= base_url();?>assets/js/bootstrap.min.js"></script>
     <script src="<?= base_url();?>assets/js/jquery.tagsinput.js"></script>
+    <script src="<?= base_url();?>assets/js/Chart.bundle.js"></script>
   
 
     <!-- Morris Charts JavaScript -->
@@ -87,6 +88,9 @@
                     </li>
                     <li class="">
                         <a href="<?=base_url();?>owner/menu"><i class="fa fa-fw fa-desktop"></i> Menu</a>
+                    </li>
+                    <li class="">
+                        <a href="<?=base_url();?>owner/pesanan_bahan"><i class="fa fa-fw fa-desktop"></i> Tambah inventory</a>
                     </li>
                     <li class="">
                         <a href="<?=base_url();?>owner/pengguna"><i class="fa fa-fw fa-desktop"></i> Pengguna</a>
