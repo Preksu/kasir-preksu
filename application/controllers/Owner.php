@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class Owner extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
@@ -12,21 +12,22 @@ class Admin extends CI_Controller {
 		$this->load->model('M_data');
 	}
 
-	public function index($page = 'penjualan')
+	public function index($page = 'owner')
 	{
 		
 
 		$data['menu'] = $this->M_data->get_menu();
 
-		$this->load->view('admin/header-nav-side.php');
-		$this->load->view('admin/'.$page,$data);
-		$this->load->view('admin/footer-nav-side.php');
+		$this->load->view('Owner/header-nav-side.php');
+		$this->load->view('Owner/'.$page,$data);
+		$this->load->view('Owner/footer-nav-side.php');
 
 	}
-	public function get_rincian_menu(){
-		$data=$this->M_data->get_rincian_menu($this->input->post('id'));
-		echo json_encode($data);
+
+	public function get_menu(){
+		$data['menu']=$this->M_data->get_menu();
 	}
+
 	public function input_pesanan(){
 		$total=$this->input->post('total');
 		$nama_menu=$this->input->post('nama_menu');
