@@ -35,6 +35,10 @@
 		<div class="col-md-4">
 			<div>
 				<div class="form-group" >
+					<label>NO Meja</label>
+					<input id="no_meja" class="form-control" type="text" value="" name="">
+				</div>
+				<div class="form-group" >
 					<label>Total (Rp)</label>
 					<input id="total_bayar" class="form-control" type="text" value="" name="" disabled="">
 				</div>
@@ -107,6 +111,7 @@
 	  	var harga = [];
 	  	var quantity = [];
 	  	var jumlah = [];
+	  	var no_meja = $('#no_meja').val();
 	  	var total = $('#total_bayar').val();
 	  	var a= $('table tr').length -1;
 	  	for (var q = 0; q<a; q++) {
@@ -117,7 +122,7 @@
 	  	}
 	  	$.ajax({
 		   type: "POST",
-		   data: {nama_menu:nama_menu,harga:harga,quantity:quantity,jumlah:jumlah, total:total},
+		   data: {nama_menu:nama_menu,harga:harga,quantity:quantity,jumlah:jumlah, total:total, no_meja:no_meja},
 		   url: "<?=base_url()?>Admin/input_pesanan",
 		   success: function(data){
 		     alert('berhasil memasukkan order !');

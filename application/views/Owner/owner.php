@@ -1,6 +1,7 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6">
+            <label>Statistika Penjualan PerBulan</label>
             <canvas id="myChart" width="100" height="100"></canvas>
         </div>
     </div>
@@ -30,7 +31,7 @@
                 </div>
             </div>
             </form>
-            
+
             <h3>Pemasukan</h3>
         <table class="table table-bordered table-striped" id="post-table"  width="100%">
             <thead>
@@ -42,7 +43,7 @@
                 </tr>
             </thead> 
             <tbody>
-                <?php $total=0; $no=0; foreach ($pesanan as $posts) {
+                <?php $pendapatan=0; $total=0; $no=0; foreach ($pesanan as $posts) {
                 ?>
                 <tr>
                     <td><?php echo $no+1 ?></td>
@@ -53,7 +54,7 @@
                 <?php $total=$total+$posts->total_pesanan; $no++; }?>
                 <tr>
                     <td colspan="3">Total Pemasukan</td>
-                    <td><?php echo $total ?></td>
+                    <td><?php $pendapatan=$pendapatan+$total;  echo $total ?></td>
                 </tr>
             </tbody>
         </table>
@@ -82,7 +83,27 @@
                 <?php $total=$total+$posts->total; $no++; }?>
                 <tr>
                     <td colspan="2">Total Pengeluaran</td>
-                    <td><?php echo $total ?></td>
+                    <td><?php $pendapatan=$pendapatan-$total; echo $total ?></td>
+                </tr>
+        </table>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 100px;">
+        
+        <div class="table-responsive col-md-8" >
+            <h3>Pendapatan</h3>
+        <table class="table table-bordered table-striped" id="post-table"  width="100%">
+            <thead>
+                <tr>
+                    <th style="width: 5%; background: #00b268; color: #fff;">No</th>
+                    <th style="width: 30%; background: #00b268; color: #fff;">pendapatan</th>
+                    <th style="width: 35%; background: #00b268; color: #fff;">Total</th>
+                </tr>
+            </thead> 
+            <tbody>
+                <tr>
+                    <td colspan="2">Total Pendapatan</td>
+                    <td><?php echo $pendapatan ?></td>
                 </tr>
         </table>
         </div>

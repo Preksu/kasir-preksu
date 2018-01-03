@@ -51,7 +51,7 @@
             	<input id="nama" class="form-control" type="text" name="nama_menu">
             	<label>Harga Menu</label>
             	<input id="harga" class="form-control" type="text" name="harga">
-            	<label>Bahan</label>
+            	<label>Deskripsi</label>
             	<input id="bahan" class="form-control" type="text" name="bahan">
                 <input id="id" class="form-control" type="hidden" name="id">
             </form>    

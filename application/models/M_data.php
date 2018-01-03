@@ -34,7 +34,7 @@ class M_data extends CI_Model {
 		return $this->db->get('inventory')->result();		
 	}
 	public function get_data_bulanan(){
-		return $this->db->query("SELECT MONTH(tanggal_pesanan) AS bulan, COUNT(*) AS jumlah_bulanan FROM pesanan GROUP BY MONTH(tanggal_pesanan) ORDER BY tanggal_pesanan ASC")->result();
+		return $this->db->query('SELECT DATE_FORMAT(tanggal_pesanan,"%M") AS bulan, COUNT(*) AS jumlah_bulanan FROM pesanan GROUP BY MONTH(tanggal_pesanan) ORDER BY tanggal_pesanan ASC')->result();
 	}
 	//inventory insert
 	public function input_inventory($data){
@@ -71,6 +71,15 @@ class M_data extends CI_Model {
 	public function cek_user($data){
 		$this->db->where($data);
 		return $this->db->get('pengguna')->num_rows();	
+	}
+
+	public function input_pengguna($data){
+		$this->db->insert('pengguna',$data);
+	}
+
+	public function hapus_pengguna($id)
+	{
+		$this->db->delete('pengguna',array('id_user'=>$id));
 	}
 
 

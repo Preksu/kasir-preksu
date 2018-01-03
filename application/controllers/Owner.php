@@ -95,7 +95,7 @@ class Owner extends CI_Controller {
 	
 			$data = array('id_menu' => '',
 							   'nama_menu' => $nama_menu,
-							   'bahan'	=> $bahan,
+							   'deskripsi'	=> $bahan,
 							 	'harga'    => $harga,
 						);
 		$this->M_data->input_menu($data);
@@ -110,12 +110,34 @@ class Owner extends CI_Controller {
 	
 			$data = array(
 							   'nama_menu' => $nama_menu,
-							   'bahan'	=> $bahan,
+							   'deskripsi'	=> $bahan,
 							 	'harga'    => $harga,
 						);
 		$this->M_data->update_menu($id,$data);
 		redirect('owner/menu');
 		
+	}
+
+
+	public function tambah_pengguna(){
+		$nama_lengkap=$this->input->post('nama_lengkap');
+		$nama_pengguna=$this->input->post('nama_pengguna');
+		$alamat=$this->input->post('alamat');
+		$password=$this->input->post('password');
+	
+			$data = array('id_user' => '',
+							   'nama_lengkap' => $nama_lengkap,
+							   'nama_pengguna'	=> $nama_pengguna,
+							 	'alamat'    => $alamat,
+							 	'password' => $password
+						);
+		$this->M_data->input_pengguna($data);
+		redirect('owner/pengguna');
+		
+	}
+	public function hapus_pengguna($id){
+		$this->M_data->hapus_pengguna($id);
+		redirect('owner/pengguna');
 	}
 	
 }

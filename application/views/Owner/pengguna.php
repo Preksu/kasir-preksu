@@ -1,7 +1,7 @@
 <div class="Container-fluid">
 	<div class="row">
 		<div class="col-md-8">
-		<Button data-toggle="modal" data-target="#modal_tambah" class="btn btn-success">Tambah Menu</Button>
+		<Button data-toggle="modal" data-target="#modal_tambah" class="btn btn-success">Tambah Pengguna</Button>
 		<div class="table-responsive" >
         <table class="table table-bordered table-striped" id="post-table"  width="100%">
             <thead>
@@ -27,7 +27,7 @@
                             <input type="hidden" name="id" value="">
                         </form>
                         <button <?php if($posts->id_user==1){echo 'disabled=""';} ?> class="btn btn-warning" type="submit" name="edit" value="edit"><i class="glyphicon glyphicon-edit"></i></button>
-                        <button <?php if($posts->id_user==1){echo 'disabled=""';} ?> data-toggle="modal" data-target="#modal_hapus<?php echo $no; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button>
+                        <a href="hapus_pengguna/<?php echo $posts->id_user;?>"><button class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i></button></a>
                     </td>
                 </tr>
                 <?php $no++; }?>
@@ -45,21 +45,23 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Tambah Menu</h4>
+          <h4 class="modal-title">Tambah Pengguna</h4>
         </div>
         <div class="modal-body">
-            <form>
-            	<label>Nama Menu</label>
-            	<input class="form-control" type="" name="">
-            	<label>Harga Menu</label>
-            	<input class="form-control" type="" name="">
-            	<label>Bahan</label>
-            	<input class="form-control" type="" name="">
+            <form action="<?=base_url()?>Owner/tambah_pengguna" method="POST" id="myform">
+            	<label>Nama Lengkap</label>
+            	<input class="form-control" type="text" name="nama_lengkap">
+            	<label>Nama Pengguna</label>
+            	<input class="form-control" type="text" name="nama_pengguna">
+                <label>Alamat</label>
+                <input class="form-control" type="text" name="alamat">
+            	<label>Password</label>
+            	<input class="form-control" type="Password" name="password">
             </form>    
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-          <button type="submit" name="hapus" value="hapus" form="myform" class="btn btn-success" >Tambah</button>
+          <button type="submit" name="tambah" value="tambah" form="myform" class="btn btn-success" >Tambah</button>
         </div>
       </div>
       

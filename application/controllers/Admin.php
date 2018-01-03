@@ -33,8 +33,10 @@ class Admin extends CI_Controller {
 		$harga=$this->input->post('harga');
 		$quantity=$this->input->post('quantity');
 		$jumlah=$this->input->post('jumlah');
+		$no_meja=$this->input->post('no_meja');
 
 		$pesanan = array('total_pesanan' => $total,
+							'no_meja' => $no_meja,
 							'id_pesanan' => '');
 
 		$this->M_data->input_pesanan($pesanan);
